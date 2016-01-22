@@ -1,6 +1,6 @@
 ---
 title: "PA1_template"
-output: html_document
+output: md_document 
 ---
 Reproducible Research: Peer Assessment 1
 ========================================
@@ -39,12 +39,18 @@ NOTE: The GitHub repository also contains the dataset for the assignment so you 
 
 <h3>PART 1: Loading and processing the data</h3>
 
-Important note: Set the correct R working directory for your machine using the setwd() function.
+Load necessary packages
+```{r}
+library(knitr)
+library(markdown)
+library(rmarkdown)
+```
 
 1a. Load the data (i.e. `read.csv()`)
 
 ```{r}
 # First, we want to load the raw activity data
+unzip(zipfile="activity.zip")
 activity_raw <- read.csv("./activity.csv", stringsAsFactors=FALSE)
 ```
 
@@ -263,3 +269,4 @@ xyplot(mean ~ interval | daytype, mean_data,
        ylab="Number of steps", 
        layout=c(1,2))
 ```
+knit2html()
